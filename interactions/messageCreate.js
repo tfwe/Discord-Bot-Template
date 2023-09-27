@@ -10,3 +10,4 @@ module.exports = {
       await message.channel.sendTyping()
       await message.reply("Test message")
   }
+}
