@@ -11,5 +11,7 @@ module.exports = {
       .setRequired(true)),
   async execute(interaction) {
     await interaction.channel.sendTyping()
+    let prompt = interaction.options.getString('prompt')
+    await interaction.reply(`Your prompt was ${prompt}`)
   }
 }
