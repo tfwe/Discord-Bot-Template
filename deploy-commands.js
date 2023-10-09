@@ -28,8 +28,10 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
   return logger.error('Missing CLIENT_ID')
     try {
     const data = await rest.put(
-      Routes.applicationGuildCommands(CLIENT_ID, '1102321826597703861'),
+      Routes.applicationCommands(CLIENT_ID),
+      // Routes.applicationGuildCommands(CLIENT_ID, 'GUILD_ID_HERE'),
       { body: commands },
+      // { body: [] }, // to erase commands
     );
       logger.info(`[deploy-commands] Successfully reloaded ${data.length} application (/) commands`);
     }

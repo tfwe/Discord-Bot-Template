@@ -67,8 +67,7 @@ client.on(Events.InteractionCreate, async interaction => {
     await command.execute(interaction);
   } catch (error) {
     await interaction.channel.send({content: `Something went wrong` + `\n\`\`\`${error}\`\`\``})
-    const interactionInspect = util.inspect(interaction, {showHidden: false, depth: null, colors: true})
-    logger.error(`[WARN] ${error} from ${interaction.member.user.tag} on message ${interaction.customId} ${interactionInspect}`);
+    logger.error(`[WARN] ${error} from ${interaction.member.user.tag} during ${interaction.commandName}: ${error.message}`);
     return
   }
 });
