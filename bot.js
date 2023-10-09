@@ -67,7 +67,7 @@ client.on(Events.InteractionCreate, async interaction => {
     await command.execute(interaction);
   } catch (error) {
     await interaction.channel.send({content: `Something went wrong` + `\n\`\`\`${error}\`\`\``})
-    logger.error(`[WARN] ${error} from ${interaction.member.user.tag} during ${interaction.commandName}: ${error.message}`);
+    logger.error(`[WARN] ${error} from ${interaction.member.user.tag} during ${interaction.commandName}: ${error.stack}`);
     return
   }
 });
