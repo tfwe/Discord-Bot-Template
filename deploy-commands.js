@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const logger = require('./logger.js')
 const TOKEN = process.env.TOKEN
 const CLIENT_ID = process.env.CLIENT_ID
+const GUILD_ID = process.env.GUILD_ID
 
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
@@ -29,7 +30,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN);
     try {
     const data = await rest.put(
       Routes.applicationCommands(CLIENT_ID),
-      // Routes.applicationGuildCommands(CLIENT_ID, 'GUILD_ID_HERE'),
+      Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
       { body: commands },
       // { body: [] }, // to erase commands
     );
